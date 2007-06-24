@@ -10,6 +10,9 @@ License: GPL
 Group: Video
 URL: http://camorama.fixedgear.org
 Source: %{name}-%{version}.tar.bz2
+# fwang: patch2,3 comes from debian
+Patch2: camorama-0.18-localefix.patch
+Patch3: camorama-0.18-missing-prototype.patch
 BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildRequires: libgnomeui2-devel libglade2.0-devel 
 BuildRequires: png-devel ImageMagick
@@ -23,6 +26,8 @@ filters.
 %prep
 rm -rf $RPM_BUILD_ROOT
 %setup -q
+%patch2 -p1
+%patch3 -p1
 
 %build
 %configure2_5x
