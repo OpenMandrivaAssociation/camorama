@@ -1,6 +1,6 @@
 %define name camorama
-%define version 0.17
-%define release %mkrel 3
+%define version 0.18
+%define release %mkrel 1
 
 Name: %{name}
 Summary: A GNOME webcam application
@@ -37,15 +37,6 @@ rm -rf $RPM_BUILD_ROOT
 %install
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
 
-# Menu
-mkdir -p %buildroot/%_menudir
-cat > %buildroot/%_menudir/%name  <<EOF
-?package(%name): command="%_bindir/%name" needs="X11" \
-icon="%name.png" section="Multimedia/Video" \
-title="Camorama" longtitle="A GNOME webcam application" \
-startup_notify="true"
-EOF
-
 # icon
 install -d $RPM_BUILD_ROOT/%{_miconsdir}
 install -d $RPM_BUILD_ROOT/%{_iconsdir}
@@ -76,7 +67,6 @@ fi
 %{_datadir}/applications/*
 %{_datadir}/pixmaps/*
 %{_datadir}/camorama
-%{_menudir}/*
 %_miconsdir/*.png
 %_iconsdir/*.png
 %_liconsdir/*.png
