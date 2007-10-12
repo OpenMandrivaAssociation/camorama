@@ -1,5 +1,5 @@
 %define name camorama
-%define version 0.18
+%define version 0.19
 %define release %mkrel 1
 
 Name: %{name}
@@ -9,12 +9,10 @@ Release: %{release}
 License: GPL
 Group: Video
 URL: http://camorama.fixedgear.org
-Source: %{name}-%{version}.tar.bz2
-# fwang: patch2,3 comes from debian
-Patch2: camorama-0.18-localefix.patch
-Patch3: camorama-0.18-missing-prototype.patch
+Source0: %{name}-%{version}.tar.bz2
+Source1: %{name}.desktop
 BuildRoot: %{_tmppath}/%{name}-buildroot
-BuildRequires: libgnomeui2-devel libglade2.0-devel 
+BuildRequires: libgnomeui2-devel libglade2.0-devel
 BuildRequires: png-devel ImageMagick
 BuildRequires: intltool desktop-file-utils
 
@@ -22,13 +20,11 @@ BuildRequires: intltool desktop-file-utils
 camorama is a program for controlling webcams. It is able to capture to various
 image formats, as well as saving to a local dir or a FTP server on the web.
 Right now you can change the video settings using the gui and apply some
-filters. 
+filters.
 
 %prep
 rm -rf $RPM_BUILD_ROOT
 %setup -q
-%patch2 -p1
-%patch3 -p1
 
 %build
 %configure2_5x
@@ -44,6 +40,7 @@ install -d $RPM_BUILD_ROOT/%{_liconsdir}
 install -m644 pixmaps/camorama-webcam-16.png $RPM_BUILD_ROOT/%{_miconsdir}/%{name}.png
 convert -sample 32x32 pixmaps/camorama.png $RPM_BUILD_ROOT/%{_iconsdir}/%{name}.png
 install -m644 pixmaps/camorama.png $RPM_BUILD_ROOT/%{_liconsdir}/%{name}.png
+cp -rf %{SOURCE1} $RPM_BUILD_ROOT/%{_datadir}/applications/
 
 %{find_lang} %{name}
 
