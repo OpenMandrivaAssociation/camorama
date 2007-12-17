@@ -11,7 +11,6 @@ Group: Video
 URL: http://camorama.fixedgear.org
 Source0: %{name}-%{version}.tar.bz2
 Source1: %{name}.desktop
-BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildRequires: libgnomeui2-devel libglade2.0-devel
 BuildRequires: png-devel ImageMagick
 BuildRequires: intltool desktop-file-utils
