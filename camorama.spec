@@ -55,7 +55,7 @@ desktop-file-install --vendor="" \
 	$RPM_BUILD_ROOT%{_datadir}/applications/*.desktop
 
 %post
-GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/camorama.schemas > /dev/null
+%post_install_gconf_schemas camorama
 %{update_menus}
 
 %preun
