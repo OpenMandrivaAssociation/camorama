@@ -59,9 +59,7 @@ desktop-file-install --vendor="" \
 %{update_menus}
 
 %preun
-if [ "$1" = "0" ]; then
-GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` gconftool-2 --makefile-uninstall-rule %{_sysconfdir}/gconf/schemas/camorama.schemas > /dev/null
-fi
+%preun_uninstall_gconf_schemas camorama
 
 %postun
 %{clean_menus}
