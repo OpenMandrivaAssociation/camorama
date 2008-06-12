@@ -54,15 +54,19 @@ desktop-file-install --vendor="" \
 	--add-category="GNOME" \
 	$RPM_BUILD_ROOT%{_datadir}/applications/*.desktop
 
+%if %mdkversion < 200900
 %post
 %post_install_gconf_schemas camorama
 %{update_menus}
+%endif
 
 %preun
 %preun_uninstall_gconf_schemas camorama
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
+%endif
 
 %files -f %name.lang
 %defattr(-, root, root)
