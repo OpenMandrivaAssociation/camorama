@@ -1,6 +1,6 @@
 %define name camorama
 %define version 0.19
-%define release %mkrel 1
+%define release %mkrel 3
 
 Name: %{name}
 Summary: A GNOME webcam application
