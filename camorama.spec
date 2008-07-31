@@ -1,6 +1,6 @@
 %define name camorama
 %define version 0.19
-%define release %mkrel 3
+%define release %mkrel 4
 
 Name: %{name}
 Summary: A GNOME webcam application
@@ -11,6 +11,7 @@ Group: Video
 URL: http://camorama.fixedgear.org
 Source0: %{name}-%{version}.tar.bz2
 Source1: %{name}.desktop
+Patch: camorama-0.19-fixes.patch
 BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildRequires: libgnomeui2-devel libglade2.0-devel
 BuildRequires: png-devel ImageMagick
@@ -25,6 +26,7 @@ filters.
 %prep
 rm -rf $RPM_BUILD_ROOT
 %setup -q
+%patch -p1 -b .fixes
 
 %build
 %configure2_5x
