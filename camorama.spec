@@ -14,7 +14,7 @@ Source1: %{name}.desktop
 Patch: camorama-0.19-fixes.patch
 BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildRequires: libgnomeui2-devel libglade2.0-devel
-BuildRequires: png-devel ImageMagick
+BuildRequires: png-devel imagemagick
 BuildRequires: intltool desktop-file-utils
 
 %description
