@@ -1,12 +1,12 @@
 %define name camorama
 %define version 0.19
-%define release %mkrel 4
+%define release %mkrel 5
 
 Name: %{name}
 Summary: A GNOME webcam application
 Version: %{version}
 Release: %{release}
-License: GPL
+License: GPLv2
 Group: Video
 URL: http://camorama.fixedgear.org
 Source0: %{name}-%{version}.tar.bz2
