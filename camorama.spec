@@ -11,10 +11,12 @@ Group: Video
 URL: http://camorama.fixedgear.org
 Source0: %{name}-%{version}.tar.bz2
 Source1: %{name}.desktop
-Patch: camorama-0.19-fixes.patch
+Patch0: camorama-0.19-fixes.patch
+Patch1: camorama-0.19-fix-vl4-header.patch
 BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildRequires: libgnomeui2-devel libglade2.0-devel
 BuildRequires: png-devel imagemagick
+BuildRequires: libv4l-devel
 BuildRequires: intltool desktop-file-utils
 
 %description
@@ -24,16 +26,16 @@ Right now you can change the video settings using the gui and apply some
 filters.
 
 %prep
-rm -rf $RPM_BUILD_ROOT
 %setup -q
-%patch -p1 -b .fixes
+%patch0 -p1 -b .fixes
+%patch1 -p0 -b .v4l
 
 %build
-%configure2_5x
+%configure2_5x --disable-schemas-install
 %make
 
 %install
-GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
+%makeinstall_std
 
 # icon
 install -d $RPM_BUILD_ROOT/%{_miconsdir}
