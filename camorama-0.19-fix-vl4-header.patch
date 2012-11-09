@@ -1,0 +1,11 @@
+--- src/v4l.h.kernel	2011-05-23 11:17:58.000000000 +0200
++++ src/v4l.h	2011-05-23 11:18:17.000000000 +0200
+@@ -13,7 +13,7 @@
+ #include <fcntl.h>
+ #include <gtk/gtk.h>
+ #include <linux/types.h>
+-#include <linux/videodev.h>
++#include <libv4l1-videodev.h>
+ #include <signal.h>
+ #include <png.h>
+ #include <glade/glade.h>
