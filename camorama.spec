@@ -1,7 +1,7 @@
 Name:		camorama
 Summary:	A GNOME webcam application
 Version:	0.19
-Release:	8
+Release:	9
 License:	GPLv2
 Group:		Video
 URL:		http://camorama.fixedgear.org
