@@ -4,7 +4,7 @@ Version:	0.19
 Release:	9
 License:	GPLv2
 Group:		Video
-URL:		http://camorama.fixedgear.org
+URL:		https://camorama.fixedgear.org
 Source0:	%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Patch0:		camorama-0.19-fixes.patch
