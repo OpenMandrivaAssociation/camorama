@@ -10,6 +10,11 @@ Source1:	%{name}.desktop
 Patch0:		camorama-0.19-fixes.patch
 Patch1:		camorama-0.19-fix-vl4-header.patch
 Patch2:		camorama-0.19-new-glib.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(libgnomeui-2.0)
 BuildRequires:	pkgconfig(libglade-2.0)
 BuildRequires:	pkgconfig(gdk-pixbuf-xlib-2.0)
