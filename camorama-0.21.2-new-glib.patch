@@ -1,0 +1,94 @@
+diff --git a/src/callbacks.c b/src/callbacks.c
+index 3cd5222..550babf 100644
+--- a/src/callbacks.c
++++ b/src/callbacks.c
+@@ -5,6 +5,7 @@
+ 
+ #include <assert.h>
+ #include <ftw.h>
++#include <glib.h>
+ #include <glib/gi18n.h>
+ #include <config.h>
+ #include <pthread.h>
+diff --git a/src/camorama-filter-laplace.c b/src/camorama-filter-laplace.c
+index 04c47a3..2f1cf6d 100644
+--- a/src/camorama-filter-laplace.c
++++ b/src/camorama-filter-laplace.c
+@@ -29,6 +29,7 @@
+ 
+ #include <stdlib.h>
+ #include <string.h>
++#include <glib.h>
+ #include <glib/gi18n.h>
+ 
+ /* GType stuff for CamoramaFilterLaplace */
+diff --git a/src/camorama-filter-mirror.c b/src/camorama-filter-mirror.c
+index a7dc6cc..da731a8 100644
+--- a/src/camorama-filter-mirror.c
++++ b/src/camorama-filter-mirror.c
+@@ -27,6 +27,7 @@
+ # include <config.h>
+ #endif
+ 
++#include <glib.h>
+ #include <glib/gi18n.h>
+ 
+ /* GType stuff for CamoramaFilterMirror */
+diff --git a/src/camorama-filter-reichardt.c b/src/camorama-filter-reichardt.c
+index 4c2ab19..33b5787 100644
+--- a/src/camorama-filter-reichardt.c
++++ b/src/camorama-filter-reichardt.c
+@@ -45,6 +45,7 @@
+ # include <config.h>
+ #endif
+ 
++#include <glib.h>
+ #include <glib/gi18n.h>
+ 
+ #include <stdio.h>
+diff --git a/src/fileio.c b/src/fileio.c
+index beecfce..d73d82c 100644
+--- a/src/fileio.c
++++ b/src/fileio.c
+@@ -5,6 +5,7 @@
+ 
+ #include <errno.h>
+ #include <gio/gio.h>
++#include <glib.h>
+ #include <glib/gi18n.h>
+ #include <time.h>
+ #include <stdio.h>
+diff --git a/src/filter.c b/src/filter.c
+index 0bf50f8..500efa3 100644
+--- a/src/filter.c
++++ b/src/filter.c
+@@ -4,6 +4,7 @@
+ # include <config.h>
+ #endif
+ 
++#include <glib.h>
+ #include <glib/gi18n.h>
+ 
+ gchar const *camorama_filter_get_name(CamoramaFilter * self)
+diff --git a/src/main.c b/src/main.c
+index 2f18136..2b582fe 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -8,6 +8,7 @@
+ #include <config.h>
+ 
+ #include <gdk/gdkx.h>
++#include <glib.h>
+ #include <glib/gi18n.h>
+ #include <locale.h>
+ #include <libv4l2.h>
+diff --git a/src/v4l.c b/src/v4l.c
+index 837df47..ccc05ca 100644
+--- a/src/v4l.c
++++ b/src/v4l.c
+@@ -1,4 +1,5 @@
+ #include <errno.h>
++#include <glib.h>
+ #include <glib/gi18n.h>
+ #include <stdlib.h>
+ #include <sys/select.h>

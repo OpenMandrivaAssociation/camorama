@@ -1,0 +1,15 @@
+diff --git a/src/v4l.h b/src/v4l.h
+index d432e15..3568e9f 100644
+--- a/src/v4l.h
++++ b/src/v4l.h
+@@ -13,8 +13,9 @@
+ #include <sys/mman.h>
+ #include <fcntl.h>
+ #include <linux/types.h>
+-#include <linux/videodev2.h>
++/* Use V4L2 + libv4l2 (replaces legacy linux/videodev.h / libv4l1-videodev.h). */
+ #include <libv4l2.h>
++#include <linux/videodev2.h>
+ #include <signal.h>
+ #include <png.h>
+ 

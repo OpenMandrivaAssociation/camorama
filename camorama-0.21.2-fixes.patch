@@ -1,0 +1,48 @@
+diff --git a/src/filter.c b/src/filter.c
+index d548b30..0bf50f8 100644
+--- a/src/filter.c
++++ b/src/filter.c
+@@ -63,10 +63,6 @@ static void camorama_filter_class_init(CamoramaFilterClass *self_class)
+ 
+ #include "v4l.h"
+ 
+-/* GType stuff for CamoramaFilterColor */
+-typedef struct _CamoramaFilter CamoramaFilterColor;
+-typedef struct _CamoramaFilterClass CamoramaFilterColorClass;
+-
+ /* GType stuff for CamoramaFilterInvert */
+ typedef struct _CamoramaFilter CamoramaFilterInvert;
+ typedef struct _CamoramaFilterClass CamoramaFilterInvertClass;
+diff --git a/src/filter.h b/src/filter.h
+index 33eb24e..48f0911 100644
+--- a/src/filter.h
++++ b/src/filter.h
+@@ -53,7 +53,6 @@ GType camorama_filter_get_type(void);
+ GType camorama_filter_mirror_get_type(void);
+ GType camorama_filter_laplace_get_type(void);
+ GType camorama_filter_reichardt_get_type(void);
+-GType camorama_filter_color_get_type(void);
+ GType camorama_filter_invert_get_type(void);
+ GType camorama_filter_threshold_get_type(void);
+ GType camorama_filter_threshold_channel_get_type(void);
+diff --git a/src/v4l.c b/src/v4l.c
+index 647e05e..837df47 100644
+--- a/src/v4l.c
++++ b/src/v4l.c
+@@ -225,6 +225,16 @@ static void copy_two_pixels(cam_t *cam,
+             plane0 += 4;
+         }
+         break;
++    case V4L2_PIX_FMT_RGB24:
++        /* Keep R,G,B order (do not treat as BGR) */
++        for (i = 0; i < 2; i++) {
++            *(*dst)++ = plane0[0];
++            *(*dst)++ = plane0[1];
++            *(*dst)++ = plane0[2];
++
++            plane0 += 3;
++        }
++        break;
+     default:
+     case V4L2_PIX_FMT_BGR24:
+         for (i = 0; i < 2; i++) {

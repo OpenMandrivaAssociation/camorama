@@ -1,15 +1,15 @@
 Name:		camorama
 Summary:	A GNOME webcam application
-Version:	0.19
-Release:	9
+Version:	0.21.2
+Release:	1
 License:	GPLv2
 Group:		Video
-URL:		https://camorama.fixedgear.org
+URL:		https://github.com/alessio/camorama
 Source0:	%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
-Patch0:		camorama-0.19-fixes.patch
-Patch1:		camorama-0.19-fix-vl4-header.patch
-Patch2:		camorama-0.19-new-glib.patch
+Patch0:		camorama-0.21.2-fixes.patch
+Patch1:		camorama-0.21.2-fix-vl4-header.patch
+Patch2:		camorama-0.21.2-new-glib.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool-base
@@ -32,9 +32,9 @@ filters.
 
 %prep
 %setup -q
-%patch0 -p1 -b .fixes
-%patch1 -p0 -b .v4l
-%patch2 -p1 -b .glib
+%patch -P0 -p1 -b .fixes
+%patch -P1 -p1 -b .v4l
+%patch -P2 -p1 -b .glib
 
 %build
 %configure2_5x --disable-schemas-install
